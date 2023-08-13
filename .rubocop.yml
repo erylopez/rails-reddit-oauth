@@ -1,0 +1,39 @@
+require:
+  - standard
+  - rubocop-rails
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/**/*
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+
+Layout/ExtraSpacing:
+  AllowForAlignment: true
+Rails:
+  Enabled: true # enable rubocop-rails cops
+Bundler/DuplicatedGem:
+  Enabled: false # ignore duplicated gem errors because we will have duplicated gems when dual booting
+Layout/ExtraSpacing:
+  AllowForAlignment: true
+Layout/SpaceBeforeFirstArg:
+  AllowForAlignment: true
+Layout/SpaceAroundOperators:
+  AllowForAlignment: true
+Rails/TimeZone:
+  Enabled: false # we don't use timezones in our app, but we should TODO: fix this
+  # EnforcedStyle: 'flexible'
+RSpec/Capybara/FeatureMethods:
+  Enabled: ['feature', 'scenario']
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/DescribedClass:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
